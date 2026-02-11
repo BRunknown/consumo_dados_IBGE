@@ -2,7 +2,7 @@ import httpx
 from src.utils.api_handler import buscar_municipios
 from respx import MockRouter
 
-UF = "SP"
+UF = "MG"
 
 
 def test_busca_municipío_timeout(respx_mock: MockRouter):
