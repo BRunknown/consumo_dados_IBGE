@@ -15,5 +15,5 @@ O objetivo desse repo é criar uma referência para consumo de APIs para extraç
 
 ## créditos 
 
-    Boa parte da estrutura base do projeto pertence a aula "Boas praticas para clientes HTTP - Eduardo Mendes (dunossauro)"!!
+Boa parte da estrutura base do projeto pertence a aula "Boas praticas para clientes HTTP - Eduardo Mendes (dunossauro)"!!
     
