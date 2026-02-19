@@ -5,7 +5,9 @@ Consumo das informações de região,estado e munícipio disponíbilziadas pelo 
 
 ## Objetivo
 
-O objetivo desse repo é um projeto de portfólio. É um consumo de informações simples, mas vou utilizar meu repertório para desenvolver um processo robusto. 
+O objetivo desse repo é um projeto de portfólio.
+
+É um consumo de informações simples, mas vou utilizar meu repertório para desenvolver um processo robusto. 
 
 ## tecnologias
 
