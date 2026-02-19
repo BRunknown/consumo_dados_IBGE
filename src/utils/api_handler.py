@@ -4,24 +4,22 @@ import logging
 import httpx
 
 from utils.logger import logger
-from utils.settings import Settings
 from utils.client_setup import client
 
 
-#refatorar isso aqui
+# refatorar isso aqui
 
-def buscar_regiao():
-    ...
 
-def busca_estados(client=client):
+def busca_regioes():
     try:
-
-        response = client.get("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+        response = client.get(
+            "https://servicodados.ibge.gov.br/api/v1/localidades/regioes"
+        )
         logger.debug(f"Status HTTP: {response.status_code} ")
 
         response.raise_for_status()
-        
-        return response 
+
+        return response
 
     except httpx.HTTPStatusError as e:
         logger.error(f"✗ Erro HTTP {e.response.status_code}: {e} ")
@@ -40,10 +38,36 @@ def busca_estados(client=client):
         return False
 
 
+def busca_estados(client=client):
+    try:
+        response = client.get(
+            "https://servicodados.ibge.gov.br/api/v1/localidades/estados"
+        )
+        logger.debug(f"Status HTTP: {response.status_code} ")
 
-def buscar_municipios(uf, client=client):
+        response.raise_for_status()
+
+        return response
+
+    except httpx.HTTPStatusError as e:
+        logger.error(f"✗ Erro HTTP {e.response.status_code}: {e} ")
+        return False
+    except httpx.RequestError as e:
+        logger.error(f"✗ Erro de conexão: {e} ")
+        return False
+    except json.JSONDecodeError as e:
+        logger.error(f"✗ Erro no formato JSON: {e} ")
+        return False
+    except IOError as e:
+        logger.error(f"✗ Erro de I/O: {e} ")
+        return False
+    except Exception as e:
+        logger.exception(f"✗ Erro inesperado: {e} ")
+        return False
+
+
+def busca_municipios(uf, client=client):
     """Busca municípios de uma UF e salva em JSON"""
-
 
     logger.info(f"=== Iniciando busca de municípios para {uf} === ")
 
@@ -57,7 +81,7 @@ def buscar_municipios(uf, client=client):
         logger.debug(f"Status HTTP: {response.status_code} ")
 
         response.raise_for_status()
-        
+
         dados = response.json()
         # Log de exemplo dos primeiros municípios
         if logger.isEnabledFor(logging.DEBUG) and dados:

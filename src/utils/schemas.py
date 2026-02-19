@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class RegiaoSchema(BaseModel):
@@ -9,15 +9,16 @@ class RegiaoSchema(BaseModel):
     sigla: str
     nome: str
 
+
 class EstadoSchema(BaseModel):
     id: int
     nome: str
     sigla: str
     regiao: RegiaoSchema
 
+
 class MunicipioSchema(BaseModel):
     id: int
     nome: str
-    uf: str
     microrregiao: dict
-    regiao_imediata: dict
+    regiao_imediata: dict = Field(alias="regiao-imediata")

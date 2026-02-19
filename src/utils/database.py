@@ -24,11 +24,13 @@ def get_session() -> Session:
         session.close()
 
 
-def get_uf_estados(session: Session):
+def get_uf_estados():
     try:
-        lista_uf_estados = session.scalar(select(Estado.uf))
-        if lista_uf_estados:
-            return lista_uf_estados
+        with get_session() as session:
+            consulta = select(Estado.cod_estado)
+            lista_uf_estados = session.execute(consulta).scalars().all()
+            if lista_uf_estados:
+                return lista_uf_estados
 
     except Exception as e:
         raise e
