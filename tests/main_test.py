@@ -1,13 +1,10 @@
 import httpx
-from src.utils.api_handler import buscar_municipios
+from main import extracao_estados_ibge, extracao_municipio_ibge
 from respx import MockRouter
 
-UF = "MG"
+def test_extracao_estados_ibge():
+    extracao_municipio_ibge()
+    retorno = extracao_estados_ibge()
 
+    assert retorno
 
-def test_busca_municipío_timeout(respx_mock: MockRouter):
-    mocked = respx_mock.get().mock(side_effect=httpx.ReadTimeout("timeout"))
-
-    response = buscar_municipios(UF)
-
-    assert mocked.called
