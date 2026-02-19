@@ -1,11 +1,11 @@
 # consumo_dados_IBGE
 
+Consumo das informações de região,estado e munícipio disponíbilziadas pelo IBGE, armazenadas nas dimensões informacionais e transacionais
+
 
 ## Objetivo
 
-O objetivo desse repo é criar uma referência para consumo de APIs para extração de Dados. 
-
-É um processo simples, mas será usado como um portfólio para mostrar meu repertório na linguagem python 
+O objetivo desse repo é um projeto de portfólio. É um consumo de informações simples, mas vou utilizar meu repertório para desenvolver um processo robusto. 
 
 ## tecnologias
 
@@ -25,12 +25,15 @@ O objetivo desse repo é criar uma referência para consumo de APIs para extraç
 
 ### respx
 
+### alembic
+
+
 ## créditos 
 
-Boa parte da estrutura base do projeto pertence a aula "Boas praticas para clientes HTTP - Eduardo Mendes (dunossauro)"!!
+Boa parte da estrutura base do projeto pertence as aulas "Boas praticas para clientes HTTP - Eduardo Mendes (dunossauro)" e "curso FastApi do zero(dunossauro)"!!
     
 ## pendencias 
 
-- habilitar o async 
 - criar testes 
+- habilitar o async 
 - explicar o uso de cada ferramenta 
