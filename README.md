@@ -32,9 +32,5 @@ Boa parte da estrutura base do projeto pertence a aula "Boas praticas para clien
 ## pendencias 
 
 - habilitar o async 
-- habilitar pesquisa de multiplos munícipios 
 - criar testes 
-- separar o parte de armazenamento dos dados brutos
-    - armazenamento em diferentes formatos 
-    - padrão datamesh 
 - explicar o uso de cada ferramenta 
