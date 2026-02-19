@@ -1,6 +1,7 @@
 # adicionados pelo usuário 
 /data
 .vscode/*
+database.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

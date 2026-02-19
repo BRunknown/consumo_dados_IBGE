@@ -1,15 +1,14 @@
 import json
-import os
+
 from pathlib import Path
 
-from sqlalchemy import select, func
-from sqlalchemy.orm import Session
+from sqlalchemy import select
 
+from utils.database import get_session
 from utils.logger import logger
 from utils.models import Estado
 from utils.schemas import EstadoSchema
 from utils.settings import Settings
-
 
 
 def armazenar_dados_brutos(response, nome_pasta, nome_arquivo):
@@ -30,27 +29,33 @@ def armazenar_dados_brutos(response, nome_pasta, nome_arquivo):
         )
 
 
-def armazena_estados(response, session=Session):
+def armazena_estados(response):
 
     try:
         lista_estados = [EstadoSchema(**item) for item in response.json()]
 
-        for estado in lista_estados:
-            db_estado = session.scalar(select(Estado).where(Estado.id_estado == estado.id))
+        with get_session() as session:
+            for estado in lista_estados:
+                db_estado = session.scalar(
+                    select(Estado).where(Estado.id_estado == estado.id)
+                )
 
-            if db_estado:
-                logger.debug(f"Informações já registradas! /n {estado}")
-                continue
+                if db_estado:
+                    logger.debug(f"Informações já registradas! /n {estado}")
+                    continue
 
-            db_estado = Estado(
-                id=estado.id, nome=estado.nome, sigla=estado.sigla, regiao=estado.regiao
-            )
+                db_estado = Estado(
+                    id=estado.id,
+                    nome=estado.nome,
+                    sigla=estado.sigla,
+                    regiao=estado.regiao,
+                )
 
-            session.add(db_estado)
-            session.commit()
-            session.refresh(db_estado)
+                session.add(db_estado)
+                session.commit()
+                session.refresh(db_estado)
 
-            logger.info(f"estado {estado.nome} registrado com sucesso!")
+                logger.info(f"estado {estado.nome} registrado com sucesso!")
 
         return
 
