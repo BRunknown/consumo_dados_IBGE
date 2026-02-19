@@ -8,4 +8,4 @@ class Settings(BaseSettings):
     CONSOLE_LOG: bool
     TIMEOUT_SEC: float
     RESPONSE_SAVE_PATH: str
-    
+    DATABASE_URL: str
