@@ -9,7 +9,7 @@ O objetivo desse repo é um projeto de portfólio.
 
 É um consumo de informações simples, mas vou utilizar meu repertório para desenvolver um processo robusto. 
 
-## tecnologias
+## Tecnologias
 
 ### git e github 
 
@@ -32,9 +32,9 @@ O objetivo desse repo é um projeto de portfólio.
 
 ## créditos 
 
-Boa parte da estrutura base do projeto pertence as aulas "Boas praticas para clientes HTTP - Eduardo Mendes (dunossauro)" e "curso FastApi do zero(dunossauro)"!!
+Boa parte da estrutura base do projeto pertence às aulas "Boas praticas para clientes HTTP - Eduardo Mendes (dunossauro)" e "curso FastApi do zero(dunossauro)"!!
     
-## pendencias 
+## Pendências 
 
 - criar testes 
 - habilitar o async 
