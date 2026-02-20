@@ -82,15 +82,6 @@ def busca_municipios(uf, client=client):
 
         response.raise_for_status()
 
-        dados = response.json()
-        # Log de exemplo dos primeiros municípios
-        if logger.isEnabledFor(logging.DEBUG) and dados:
-            logger.debug("Primeiros 3 municípios: ")
-            for i, municipio in enumerate(dados[:3], 1):
-                nome = municipio.get("nome", "N/A")
-                id_municipio = municipio.get("id", "N/A")
-                logger.debug(f"  {i}. {nome} (ID: {id_municipio})")
-
         return response
 
     except httpx.HTTPStatusError as e:
