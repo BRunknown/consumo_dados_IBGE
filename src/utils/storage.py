@@ -13,7 +13,7 @@ from utils.settings import Settings
 
 def armazenar_dados_brutos(response, nome_pasta, nome_arquivo):
     try:
-        folderpath = f"{Settings().RESPONSE_SAVE_PATH}/{nome_pasta}"
+        folderpath = f"{Settings().RESPONSE_SAVE_PATH}{nome_pasta}"
         filepath = f"{folderpath}/{nome_arquivo}"
 
         folder_path = Path(folderpath)
