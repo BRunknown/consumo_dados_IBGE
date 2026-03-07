@@ -33,7 +33,11 @@ dev = [
 
 [tool.pytest_env]
 
+CONSOLE_LOG = 'TRUE'
+LOG_LEVEL = 'DEBUG'
+TIMEOUT_SEC = 5
 RESPONSE_SAVE_PATH = ""
+DATABASE_URL = 'sqlite:///teste.db'
 
 [tool.pytest.ini_options]
 
