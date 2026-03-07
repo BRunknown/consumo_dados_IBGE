@@ -29,10 +29,10 @@ dev = [
     "pytest-env (>=1.2.0,<2.0.0)",
     "ruff (>=0.15.0,<0.16.0)",
     "respx (>=0.22.0,<0.23.0)",
+    "taskipy (>=1.14.1,<2.0.0)",
 ]
 
 [tool.pytest_env]
-
 CONSOLE_LOG = 'TRUE'
 LOG_LEVEL = 'DEBUG'
 TIMEOUT_SEC = 5
@@ -40,7 +40,11 @@ RESPONSE_SAVE_PATH = ""
 DATABASE_URL = 'sqlite:///teste.db'
 
 [tool.pytest.ini_options]
-
 pythonpath = ["src"]
-
 tmp_path_retention_policy = "failed"
+
+[tool.taskipy.tasks]
+lint = 'ruff check'
+
+[tool.ruff]
+include = ["src/**/*.py"]

@@ -1,6 +1,6 @@
-name: Test Python Project
+name: test_python_poetry
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   test:
@@ -21,5 +21,7 @@ jobs:
           key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
       - name: Install dependencies
         run: poetry install --no-interaction --with dev
+      - name: Lint with Ruff
+        run: taskipy lint
       - name: Run tests
         run: poetry run pytest
