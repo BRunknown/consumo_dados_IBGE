@@ -1,8 +1,8 @@
 import os
 from httpx import Response
 
-from src.utils.storage import armazenar_dados_brutos
-from src.utils.settings import Settings
+from utils.storage import armazenar_dados_brutos
+from utils.settings import Settings
 
 
 def test_armazenar_dados_brutos(tmp_path):

@@ -3,7 +3,7 @@ from http import HTTPStatus
 import httpx
 import respx
 
-from src.utils.api_handler import busca_municipios
+from utils.api_handler import busca_municipios
 
 uf = "MG"
 
