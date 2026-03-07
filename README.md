@@ -39,3 +39,4 @@ Boa parte da estrutura base do projeto pertence às aulas "Boas praticas para cl
 - criar testes 
 - habilitar o async 
 - explicar o uso de cada ferramenta 
+- adicionar git actions
